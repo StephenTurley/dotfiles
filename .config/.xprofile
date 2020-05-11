@@ -1,0 +1,5 @@
+#!/bin/sh
+
+xwallpaper --zoom $XDG_CONFIG_HOME/wall.png
+
+xcompmgr -c &
