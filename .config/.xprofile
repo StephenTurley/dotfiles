@@ -2,5 +2,5 @@
 
 xwallpaper --zoom $XDG_CONFIG_HOME/wall.png
 
-xcompmgr -c &
+xcompmgr -o 0 -c &
 dwmblocks &
