@@ -1,6 +1,7 @@
 #!/bin/zsh
 
 path+="$HOME/.local/bin"
+path+="$HOME/.local/bin/statusbar"
 
 export EDITOR="nvim"
 export TERMINAL="alacritty"
