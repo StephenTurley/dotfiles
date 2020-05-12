@@ -23,6 +23,9 @@ let g:elm_format_autosave = 1
 " vim-ale
 let g:ale_open_list = 0                 " show errors in window
 let g:ale_keep_list_window_open = 0     " keep the windows open
+let g:ale_set_highlights = 0
+let g:ale_completion_enabled = 1
+let g:ale_completion_tsserver_autoimport = 1
 
 " tabs
 set expandtab                           " Expand TABs to spaces
@@ -47,5 +50,3 @@ nmap <silent> ,l :TestLast<CR>
 set backupcopy=yes
 
 set noswapfile
-let g:ale_completion_enabled = 1
-let g:ale_completion_tsserver_autoimport = 1
