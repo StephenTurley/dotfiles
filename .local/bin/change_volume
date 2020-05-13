@@ -1,0 +1,15 @@
+#!/bin/zsh
+
+incr=10%
+
+case $1 in
+    up)
+        amixer set Master $incr+
+        ;;
+    down)
+        amixer set Master $incr-
+        ;;
+esac>>/dev/null
+
+pkill -RTMIN+2 dwmblocks
+
