@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-xbps-install -Suv
+sudo xbps-install -Suv
 
 pkill -RTMIN+5 dwmblocks
 
