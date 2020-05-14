@@ -26,3 +26,4 @@ esac
 pkill -RTMIN+4 dwmblocks
 
 xbacklight -get
+
