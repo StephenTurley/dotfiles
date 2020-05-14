@@ -1,0 +1,4 @@
+#!/bin/sh
+
+updates="$(xbps-install -Mun | wc -l)"
+printf "%s\n" " $updates"
