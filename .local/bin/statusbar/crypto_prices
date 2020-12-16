@@ -1,0 +1,15 @@
+#!/bin/zsh
+CMC_PRO_API_KEY=32def494-bcc4-4c11-85da-ea1ba6b99aba
+
+
+coins=BTC,DOT,ETH
+
+quotes=$(curl -H "X-CMC_PRO_API_KEY: $CMC_PRO_API_KEY" -H "Accept: application/json" -G https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest\?symbol\=$coins 2> /dev/null)
+
+foreach coin ( "BTC" "ETH" "DOT" )
+  filter=".data.$coin.quote.USD.price"
+  price=$(echo $quotes | jq -r $filter)
+  printf " %s:%0.2f" "$coin" "$price"
+end
+
+printf " |\n"

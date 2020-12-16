@@ -1,4 +1,4 @@
 #!/bin/sh
 
-updates="$(xbps-install -Mun | wc -l)"
-printf "%s\n" " $updates"
+updates="$(apt list --upgradable 2> /dev/null| wc -l)"
+printf "%s\n" "pkgs:$((updates - 1)) |"

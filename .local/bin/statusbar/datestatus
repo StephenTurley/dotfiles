@@ -2,4 +2,5 @@
 
 date="$(date +"%A %d %b")"
 time="$(date +"%H:%M")"
-printf "%s\n" " $date  $time"
+# printf "%s\n" "📅 $date 🕑 $time"
+printf "%s\n" "$date | $time"
