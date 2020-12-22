@@ -3,4 +3,4 @@
 # void
 # updates="$(xbps-install -Mun | wc -l)"
 updates="$(checkupdates | wc -l)"
-printf "PKGS:%s |\n" "$updates"
+printf "PKGS:%s\n" "$updates"

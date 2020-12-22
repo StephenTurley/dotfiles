@@ -6,10 +6,13 @@ coins=BTC,DOT,ETH
 
 quotes=$(curl -H "X-CMC_PRO_API_KEY: $CMC_PRO_API_KEY" -H "Accept: application/json" -G https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest\?symbol\=$coins 2> /dev/null)
 
-foreach coin ( "BTC" "ETH" "DOT" )
-  filter=".data.$coin.quote.USD.price"
-  price=$(echo $quotes | jq -r $filter)
-  printf " %s:%0.2f" "$coin" "$price"
-end
+function price() {
+  filter=".data.$1.quote.USD.price"
+  echo $quotes | jq -r $filter
+}
 
-printf " |\n"
+printf "%s:%0.2f" "BTC" "$(price BTC)"
+printf " %s:%0.2f" "ETH" "$(price ETH)"
+printf " %s:%0.2f" "DOT" "$(price DOT)"
+
+printf "\n"
