@@ -6,9 +6,9 @@ window:
 font:
   normal:
     family: monospace
-  size: 8.0
+  size: 14.0
 
-background_opacity: 0.85
+background_opacity: 0.95
 
 schemes:
     gruvbox_dark: &gruvbox_dark
@@ -89,4 +89,4 @@ schemes:
         cyan:    '#93a1a1' # base1
         white:   '#fdf6e3' # base
 
-colors: *gruvbox_dark
+colors: *ayu_dark
