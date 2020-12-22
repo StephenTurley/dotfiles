@@ -1,0 +1,8 @@
+#!/bin/zsh
+sensor_data=$(sensors -j)
+
+printf "%s:%s" "C" $(echo $sensor_data | jq '."nct6798-isa-0290".CPUTIN."temp2_input"')
+printf " %s:%s" "N" $(echo $sensor_data | jq '."nvme-pci-0100".Composite."temp1_input"')
+printf " %s:%s" "GE" $(echo $sensor_data | jq '."amdgpu-pci-0f00".edge."temp1_input"')
+printf " %s:%s" "GJ" $(echo $sensor_data | jq '."amdgpu-pci-0f00".junction."temp2_input"')
+printf " |\n"
