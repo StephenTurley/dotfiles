@@ -68,5 +68,5 @@ highlight Search term=none ctermbg=Yellow ctermfg=Black
 highlight ErrorMsg term=standout ctermbg=DarkRed ctermfg=Black
 highlight Error term=standout ctermbg=DarkRed ctermfg=Black
 highlight SpellBad term=standout ctermbg=DarkRed ctermfg=Black
-highlight Visual term=none ctermbg=LightGrey ctermfg=Black
+highlight Visual term=none ctermbg=LightBlue ctermfg=Black
 
