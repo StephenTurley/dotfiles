@@ -34,6 +34,7 @@ let g:ale_fix_on_save = 1
 let g:ale_fixers = ['eslint']
 nmap <silent> ,h :ALEHover<CR>
 nmap <silent> ,d :ALEGoToDefinition<CR>
+nmap <silent> ,r :ALERename<CR>
 
 " tabs
 set expandtab                           " Expand TABs to spaces
@@ -69,4 +70,8 @@ highlight ErrorMsg term=standout ctermbg=DarkRed ctermfg=Black
 highlight Error term=standout ctermbg=DarkRed ctermfg=Black
 highlight SpellBad term=standout ctermbg=DarkRed ctermfg=Black
 highlight Visual term=none ctermbg=LightBlue ctermfg=Black
+" highlight MatchParen term=standout ctermbg=Blue ctermfg=Red
+highlight SpellCap term=standout ctermbg=Yellow ctermfg=Black
 
+" yank like delete
+nmap Y y$
