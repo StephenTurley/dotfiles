@@ -26,12 +26,15 @@ let g:elm_format_autosave = 1
 
 " vim-ale
 let g:ale_open_list = 1                 " show errors in window
-let g:ale_keep_list_window_open = 1     " keep the windows open
+let g:ale_keep_list_window_open = 0     " keep the windows open
 let g:ale_set_highlights = 1
 let g:ale_completion_enabled = 1
 let g:ale_completion_autoimport = 1
 let g:ale_fix_on_save = 1
-let g:ale_fixers = ['eslint']
+let g:ale_fixers = ['prettier']
+nmap <silent> ,h :ALEHover<CR>
+nmap <silent> ,d :ALEGoToDefinition<CR>
+nmap <silent> ,r :ALERename<CR>
 
 " tabs
 set expandtab                           " Expand TABs to spaces
@@ -45,7 +48,6 @@ let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 nmap <silent> <C-p> :Files<CR>
 nmap <silent> <C-t> :Ag<CR>
 let g:fzf_layout = { 'down': '40%' }
-
 
 " vim-test
 let g:test#javascript#karma#file_pattern = '\v(test|spec)\.(js|jsx|coffee)$'
@@ -62,3 +64,14 @@ nmap <silent> ,l :TestLast<CR>
 " parceljs hot module reloads
 set backupcopy=yes
 set noswapfile
+
+highlight Search term=none ctermbg=Yellow ctermfg=Black
+highlight ErrorMsg term=standout ctermbg=DarkRed ctermfg=Black
+highlight Error term=standout ctermbg=DarkRed ctermfg=Black
+highlight SpellBad term=standout ctermbg=DarkRed ctermfg=Black
+highlight Visual term=none ctermbg=LightBlue ctermfg=Black
+" highlight MatchParen term=standout ctermbg=Blue ctermfg=Red
+highlight SpellCap term=standout ctermbg=Yellow ctermfg=Black
+
+" yank like delete
+nmap Y y$
