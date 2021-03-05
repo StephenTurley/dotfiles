@@ -31,10 +31,16 @@ let g:ale_set_highlights = 1
 let g:ale_completion_enabled = 1
 let g:ale_completion_autoimport = 1
 let g:ale_fix_on_save = 1
-let g:ale_fixers = ['eslint']
+let g:ale_linters = { 'go': ['gopls'] }
+let g:ale_fixers = { 
+      \ 'typescript': ['eslint'], 
+      \ 'go': ['gofmt'],
+      \ 'ruby': ['rubocop'],
+      \}
 nmap <silent> ,h :ALEHover<CR>
 nmap <silent> ,d :ALEGoToDefinition<CR>
 nmap <silent> ,r :ALERename<CR>
+nmap <silent> ,g :ALEFindReferences<CR>
 
 " tabs
 set expandtab                           " Expand TABs to spaces
@@ -72,6 +78,12 @@ highlight SpellBad term=standout ctermbg=DarkRed ctermfg=Black
 highlight Visual term=none ctermbg=LightBlue ctermfg=Black
 " highlight MatchParen term=standout ctermbg=Blue ctermfg=Red
 highlight SpellCap term=standout ctermbg=Yellow ctermfg=Black
+highlight Folded term=standout ctermfg=DarkBlue ctermbg=LightGrey
 
 " yank like delete
 nmap Y y$
+
+" folding
+" https://vim.fandom.com/wiki/All_folds_open_when_opening_a_file
+set foldmethod=indent
+set foldlevelstart=20
