@@ -31,9 +31,15 @@ let g:ale_set_highlights = 1
 let g:ale_completion_enabled = 1
 let g:ale_completion_autoimport = 1
 let g:ale_fix_on_save = 1
-let g:ale_fixers = ['prettier']
+let g:ale_fixers = {
+      \ 'typescript': ['eslint'],
+      \ 'go': ['gofmt'],
+      \ 'ruby': ['rubocop'],
+      \}
+
 nmap <silent> ,h :ALEHover<CR>
 nmap <silent> ,d :ALEGoToDefinition<CR>
+nmap <silent> ,g :ALEFindReferences<CR>
 nmap <silent> ,r :ALERename<CR>
 
 " tabs
@@ -54,6 +60,7 @@ let g:test#javascript#karma#file_pattern = '\v(test|spec)\.(js|jsx|coffee)$'
 let g:test#javascript#cypress#file_pattern = '\v(test|spec)\.(js|jsx|coffee)$'
 let g:test#javascript#jasmine#file_pattern = '\v(test|spec)\.(js|jsx|coffee)$'
 let g:test#javascript#jest#file_pattern = '\v(test|spec)\.(ts|tsx)$'
+" let g:test#javascript#jest#executable = 'node --inspect-brk node_modules/.bin/jest --runInBand'
 
 nmap <silent> ,t :TestNearest<CR>
 nmap <silent> ,F :TestFile<CR>
@@ -75,3 +82,8 @@ highlight SpellCap term=standout ctermbg=Yellow ctermfg=Black
 
 " yank like delete
 nmap Y y$
+
+" folding
+" https://vim.fandom.com/wiki/All_folds_open_when_opening_a_file
+set foldmethod=indent
+set foldlevelstart=20
