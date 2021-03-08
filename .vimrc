@@ -56,16 +56,18 @@ nmap <silent> <C-t> :Ag<CR>
 
 
 " vim-test
-let g:test#javascript#karma#file_pattern = '\v(test|spec)\.(js|jsx|coffee)$'
-let g:test#javascript#cypress#file_pattern = '\v(test|spec)\.(js|jsx|coffee)$'
-let g:test#javascript#jasmine#file_pattern = '\v(test|spec)\.(js|jsx|coffee)$'
+let g:test#javascript#runner = 'jest'
 let g:test#javascript#jest#file_pattern = '\v(test|spec)\.(ts|tsx)$'
+
+" debug
+" let g:test#javascript#jest#executable = 'node --inspect-brk node_modules/.bin/jest --runInBand'
 
 nmap <silent> ,t :TestNearest<CR>
 nmap <silent> ,F :TestFile<CR>
 nmap <silent> ,T :TestSuite<CR>
 nmap <silent> ,l :TestLast<CR>
 " nmap <silent> t<C-g> :TestVisit<CR>
+"
 "
 " parceljs hot module reloads
 set backupcopy=yes
