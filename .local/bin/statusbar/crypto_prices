@@ -1,7 +1,4 @@
 #!/bin/zsh
-CMC_PRO_API_KEY=32def494-bcc4-4c11-85da-ea1ba6b99aba
-
-
 coins=BTC,DOT,ETH
 
 quotes=$(curl -H "X-CMC_PRO_API_KEY: $CMC_PRO_API_KEY" -H "Accept: application/json" -G https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest\?symbol\=$coins 2> /dev/null)
@@ -11,8 +8,13 @@ function price() {
   echo $quotes | jq -r $filter
 }
 
+function gas() {
+  curl -G https://api.etherscan.io/api\?module=gastracker\&action=gasoracle 2> /dev/null | jq -r ".result.SafeGasPrice"
+}
+
+
 printf "%s:%0.2f" "BTC" "$(price BTC)"
 printf " %s:%0.2f" "ETH" "$(price ETH)"
 printf " %s:%0.2f" "DOT" "$(price DOT)"
-
+printf " %s:%d" "GAS" "$(gas)"
 printf "\n"
