@@ -13,6 +13,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'kchmck/vim-coffee-script'
 Plug 'ianks/vim-tsx'
 Plug 'tpope/vim-fugitive'
+Plug 'elixir-editors/vim-elixir'
 call plug#end()
 " :PlugInstall
 
@@ -31,16 +32,25 @@ let g:ale_set_highlights = 1
 let g:ale_completion_enabled = 1
 let g:ale_completion_autoimport = 1
 let g:ale_fix_on_save = 1
+let g:ale_linters = { 
+      \ 'elixir': ['elixir-ls'],
+      \ 'go': ['gopls'] }
+
 let g:ale_fixers = {
-      \ 'typescript': ['eslint'],
+      \ 'elixir': ['mix_format'],
+      \ 'typescript': ['prettier'],
       \ 'go': ['gofmt'],
       \ 'ruby': ['rubocop'],
       \}
 
+" https://www.mitchellhanberg.com/post/2018/10/18/how-to-use-elixir-ls-with-vim/
+let g:ale_elixir_elixir_ls_release = expand("~/.local/bin/elixir-ls")
 nmap <silent> ,h :ALEHover<CR>
 nmap <silent> ,d :ALEGoToDefinition<CR>
 nmap <silent> ,g :ALEFindReferences<CR>
 nmap <silent> ,r :ALERename<CR>
+nmap <silent> ,n :ALENext<CR>
+nmap <silent> ,N :ALEPrevious<CR>
 
 " tabs
 set expandtab                           " Expand TABs to spaces
